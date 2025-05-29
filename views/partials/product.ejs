@@ -1,0 +1,73 @@
+<li
+  class="border border-gray-200 rounded md:rounded-lg bg-white overflow-hidden"
+>
+  <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" />
+  <div class="p-1 lg:p-2">
+    <a href="/products/<%= product.id %>"
+      ><h2 class="text-lg font-semibold md:font-bold text-neutral-800">
+        <%= product.name %>
+      </h2></a
+    >
+
+    <h3 class="text-sm">
+      Valor:
+      <span class="text-amber-950 font-semibold">$<%= product.price %></span>
+    </h3>
+    <% if(user?.admin){ %>
+    <div class="mt-1 flex flex-col gap-1 md:flex-row justify-between">
+      <a
+        href="/products/<%= product.id %>/edit"
+        class="flex gap-0.5 lg:gap-1 items-center w-full justify-center md:w-fit bg-amber-500 text-white p-0.5 lg:p-1 rounded"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="23"
+          height="23"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"
+          />
+          <path
+            d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"
+          />
+          <path d="M16 5l3 3" />
+        </svg>
+        <span>Editar</span>
+      </a>
+      <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+        <button
+          type="submit"
+          class="flex gap-1 items-center w-full justify-center md:w-fit bg-red-500 text-white p-1 rounded cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 7l16 0" />
+            <path d="M10 11l0 6" />
+            <path d="M14 11l0 6" />
+            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+          </svg>
+
+          <span>Eliminar</span>
+        </button>
+      </form>
+    </div>
+
+    <%} %>
+  </div>
+</li>

@@ -1,0 +1,17 @@
+<form
+  action="/products"
+  method="POST"
+  enctype="multipart/form-data"
+  class="flex flex-col gap-2 w-full md:max-w-[700px] mx-auto bg-white p-2 shadow-md border border-gray-300 rounded md:rounded-lg"
+>
+  <h1 class="text-xl">Añadir producto</h1>
+  <% if (errors && errors.length > 0) { %>
+  <ul class="flex flex-col gap-2 mb-2">
+    <% errors.forEach(error => { %>
+    <li class="bg-red-200 text-red-800 border border-red-700 p-1">
+      <%= error.msg %>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %> <%- include("productoForm") %>
+</form>

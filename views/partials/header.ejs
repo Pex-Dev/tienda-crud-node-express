@@ -1,0 +1,52 @@
+<header class="transition-all fixed w-full bg-blue-700/80 backdrop-blur-sm p-2 shadow-xl max-h-[56px] overflow-hidden">
+  <div class="md:mx-10 flex flex-col md:flex-row items-center gap-3 md:gap-10">
+    <div class="flex justify-between w-full md:w-fit">
+      <a href="/">
+      <%- include("title") %>
+      </a>
+      <button id="menuButton" class="md:hidden cursor-pointer" aria-label="Menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 6l16 0" />
+          <path d="M4 12l16 0" />
+          <path d="M4 18l16 0" />
+        </svg>
+      </button>
+    </div>   
+    <div class="w-full flex flex-col items-center md:flex-row justify-between">
+      <nav class="flex flex-col items-center md:flex-row gap-2 text-white">
+        <a href="/" class="hover:text-cyan-300">Inicio</a>
+        <a href="/products" class="hover:text-cyan-300">Productos</a>
+        <a href="/about" class="hover:text-cyan-300">Acerca</a>        
+      </nav>
+      <% if(user){ %>
+          <form action="/logout" method="GET" class="flex items-center gap-2">
+            <%if(user?.admin){ %>
+            <a href="/admin" class="text-white" class="hover:text-cyan-300">
+              Admin
+            </a>
+           <%}else{%>
+              <span class="text-white"><%= user.name %></span>
+            <%}  %>
+            <button type="submit" class="bg-red-600 text-white p-2 rounded transition-colors hover:bg-red-700 cursor-pointer">
+              Cerrar sesión
+            </button>
+          </form>
+      <%}else{ %>
+        <a href="/login" class="bg-white text-blue-700 p-2 rounded transition-colors hover:bg-gray-200">
+          Iniciar Sesión
+        </a>
+      <%} %>
+    
+    
+  </div>
+</header>

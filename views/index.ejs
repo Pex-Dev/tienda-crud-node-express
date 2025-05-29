@@ -1,0 +1,19 @@
+<h2 class="text-3xl">Bienvenido a <%= appName %></h2>
+<p class="text-lg text-gray-800 mt-4">
+  Explora una variedad de productos seleccionados con cariño para ti. Aquí
+  podrás navegar, agregar, editar y eliminar artículos fácilmente gracias a
+  nuestro sistema CRUD.
+</p>
+<p class="text-lg text-gray-800">
+  Este sitio es una demostración simple construida con Node.js, Express y EJS,
+  pensada para el aprendizaje..
+</p>
+<a href="/products" class="mt-5 block underline text-blue-900 font-semibold"
+  >Ver productos</a
+>
+<% if(products.length>0){ %>
+<ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 mt-2">
+  <% products.map((product) => { %> <%- include("partials/product",{product}) %>
+  <%}) %>
+</ul>
+<% } %>

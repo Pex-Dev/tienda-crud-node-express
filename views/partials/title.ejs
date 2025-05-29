@@ -1,0 +1,12 @@
+<% 
+    const splitTitle = appName.split(/(?=[A-Z])/); 
+    let title = `<h1 class="text-3xl font-bold text-amber-300">${splitTitle[0]}<span class="text-white">`; 
+    if(splitTitle.length>0){
+        for(let i = 1;i < splitTitle.length; i++)
+        { 
+            title += splitTitle[i];
+        } 
+    }
+    title +="</span></h1>";    
+%>
+<%- title %>
