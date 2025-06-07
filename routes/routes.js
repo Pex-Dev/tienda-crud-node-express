@@ -26,8 +26,8 @@ router.get("/logout", authController.logout); // manejar el cierre de sesión
 
 //Productos
 router.get("/products", productController.index);
-router.get("/products/:id", productController.show);
 router.get("/products/create", auth, admin, productController.create);
+router.get("/products/:id", productController.show);
 router.post(
   "/products",
   auth,
