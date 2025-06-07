@@ -15,6 +15,7 @@ exports.autenticar = (req, res) => {
     if (results.length === 0) {
       return res.render("auth/login", {
         error: "Usuario o contraseña incorrectos",
+        oldData: { email },
       });
     }
 
