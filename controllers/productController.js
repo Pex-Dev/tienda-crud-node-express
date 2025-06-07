@@ -47,6 +47,7 @@ exports.store = async (req, res) => {
   if (!errores.isEmpty()) {
     return res.render("admin/productos/create", {
       errors: errores.array(),
+      product: null,
       oldData: req.body,
     });
   }
@@ -55,6 +56,7 @@ exports.store = async (req, res) => {
   if (!req.file) {
     return res.render("admin/productos/create", {
       oldData: req.body,
+      product: null,
       errors: [{ msg: "Debes subir una imagen" }],
     });
   }
@@ -66,6 +68,7 @@ exports.store = async (req, res) => {
   if (!uploadResult.success) {
     res.render("admin/productos/create", {
       oldData: req.body,
+      product: null,
       errors: [{ msg: uploadResult.message }],
     });
   }
@@ -85,6 +88,7 @@ exports.store = async (req, res) => {
   if (!success) {
     return res.render("admin/productos/create", {
       oldData: req.body,
+      product: null,
       errors: [{ msg: message }],
     });
   }
