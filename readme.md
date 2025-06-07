@@ -32,7 +32,7 @@ Antes de ejecutar este proyecto, asegúrate de tener instalado lo siguiente en t
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/tienda-crud.git
+   git clone https://github.com/Pex-Dev/tienda-crud-node-express.git
    ```
 2. Entra al direc
    ```bash
